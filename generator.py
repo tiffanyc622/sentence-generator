@@ -5,6 +5,7 @@ from flask import request
 from flask import render_template
 
 from nltk.tree import Tree
+from nltk.treeprettyprinter import TreePrettyPrinter
 
 from stat_parser import Parser
 parser = Parser()
@@ -29,7 +30,10 @@ def toboard():
 	#tree = create_corpus(sent)
 	#tree = fix_tree(tree)
 	perms = permute_tree(tree)
-	return trees_to_string(perms)
+	pretty = TreePrettyPrinter(tree, None, ()).text()
+	#pretty = pretty.replace('\n', '<br>')
+	print(pretty)
+	return '<pre>' + pretty + '</pre><br>' + trees_to_string(perms)
 
 ####################
 # TREE STUFF #
@@ -43,8 +47,9 @@ def trees_to_string(tree_lst):
 		for leaf in t.leaves():
 			string += leaf + ' '
 		string = string[0].upper() + string[1:]
-		if len(tool.check(string)) == 0:
-			str_lst.append(string)
+		print('hm ' + string + "*")
+		if len(tool.check(string)) == 0 and string[-2]!='I':
+			str_lst.append(string[:-1] + '.')
 		else:
 			[print(match) for match in tool.check(string)]
 			print('wrong! ' + string)
