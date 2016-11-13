@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+.nicetitle{
+	font-family: Gill Sans, Verdana;
+ 	font-size: 25px;
+ 	line-height: 14px;
+ 	text-transform: uppercase;
+ 	letter-spacing: 2px;
+ 	font-weight: lighter;
+}
+body{
+	background-color:#AFEEEE
+}
+
+.prettybutton{
+	font-size: 15px;
+	font-family: Gill Sans, Verdana;
+}
+.prettybutton:hover {
+	box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+	font-weight: bold;
+}
+
+input[type=text]:focus, textarea:focus {
+  box-shadow: 0 0 5px rgba(81, 203, 238, 1);
+  padding: 3px 0px 3px 3px;
+  margin: 5px 1px 3px 0px;
+  border: 1px solid rgba(81, 203, 238, 1);
+}
+
+</style>
+<title>Sentence Generator</title>
+</head>
+
+<body>
+<center><h1 class="nicetitle">Sentence Generator</h1></center>
+<hr>
+<form action=".", method="POST">
+	<br>
+	<textarea placeholder="Type input here" name ="field" cols ="100" rows="10" style="font-size: 15px;" autofocus></textarea>
+	<br>
+	<input class="prettybutton" type="submit" value="Generate">
+</form>
+
+</body>
+</html>
